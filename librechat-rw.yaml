@@ -35,18 +35,16 @@ endpoints:
       modelDisplayLabel: "Anyscale"
 
    azureOpenAI:
-    titleModel: "gpt-4-turbo"
-    plugins: true
+    titleModel: "TRES-GPT"
+    plugins: false
+    assistants: false  # Add if you need assistants API
     groups:
-      - group: "my-westus" # arbitrary name
+      - group: "tres-azure" # arbitrary name for your group
         apiKey: "${TRES_AZURE_OPENAI_KEY}"
-        instanceName: "tres-azure-openai" # name of the resource group or instance
+        instanceName: "tres-azure-openai"
         version: "2024-05-01-preview"
-        # baseURL: https://prod.example.com
-        # additionalHeaders:
-        #   X-Custom-Header: value
         models:
           gpt-4o-mini:
-            deploymentName: tres-gpt4o-mini
+            deploymentName: "tres-gpt4o-mini"
             version: "2024-05-01-preview"
 
