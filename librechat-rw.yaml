@@ -34,10 +34,19 @@ endpoints:
       forcePrompt: false
       modelDisplayLabel: "Anyscale"
 
-    - name: azureOpenAI
-      apiKey: "${TRES_AZURE_OPENAI_KEY}"
-      instanceName: "tres-azure-openai" 
-      models:
-        gpt-4o-mini:
-          deploymentName: tres-gpt4o-mini
-          version: "24-05-01-preview"
+   azureOpenAI:
+    titleModel: "gpt-4-turbo"
+    plugins: true
+    groups:
+      - group: "my-westus" # arbitrary name
+        apiKey: "${TRES_AZURE_OPENAI_KEY}"
+        instanceName: "tres-azure-openai" # name of the resource group or instance
+        version: "2024-05-01-preview"
+        # baseURL: https://prod.example.com
+        # additionalHeaders:
+        #   X-Custom-Header: value
+        models:
+          gpt-4o-mini:
+            deploymentName: tres-gpt4o-mini
+            version: "2024-05-01-preview"
+
